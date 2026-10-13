@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#0d0209" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="description" content="Մի փոքրիկ անակնկալ քեզ համար 💝" />
+<title>Մի փոքրիկ անակնկալ 💝</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;500;600&family=Noto+Sans+Armenian:wght@200;300;400;500;600;700&family=Noto+Serif+Armenian:wght@300;400;500;600;700&display=swap"
+  rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ═══════ LOADER ═══════ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-heart">
+    <span>♥</span>
+  </div>
+  <p class="loader-text">Մի փոքրիկ բան պատրաստվում է…</p>
+  <div class="loader-bar"><span></span></div>
+</div>
+
+<!-- ═══════ CURSOR GLOW ═══════ -->
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- ═══════ CONFETTI ═══════ -->
+<canvas class="confetti-canvas" id="confettiCanvas" aria-hidden="true"></canvas>
+
+<!-- ═══════ TOP PROGRESS ═══════ -->
+<div class="top-progress" aria-hidden="true">
+  <span id="topProgressFill"></span>
+</div>
+
+<!-- ═══════ BACKGROUND ═══════ -->
+<div class="aurora aurora-1" aria-hidden="true"></div>
+<div class="aurora aurora-2" aria-hidden="true"></div>
+<div class="aurora aurora-3" aria-hidden="true"></div>
+<div class="particles" id="particles" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ═══════ MUSIC ═══════ -->
+<button class="music-btn" id="musicBtn" aria-label="Երաժշտություն">
+  <svg class="music-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 18V5l12-2v13"></path>
+    <circle cx="6" cy="18" r="3"></circle>
+    <circle cx="18" cy="16" r="3"></circle>
+  </svg>
+  <span class="music-rings"></span>
+</button>
+
+<!-- ═══════ DOTS ═══════ -->
+<nav class="progress-dots" id="progressDots" aria-label="Էջեր"></nav>
+
+<!-- ═══════ STAGE ═══════ -->
+<main class="stage" id="stage">
+
+  <!-- ───────── 1. ՈՂՋՈՒՅՆ ───────── -->
+  <section class="screen" data-screen="0" data-transition="zoom">
+    <div class="screen-inner">
+
+      <div class="gift-scene" id="giftScene">
+        <div class="gift-aura"></div>
+        <div class="gift" id="giftBox">
+          <div class="gift-lid">
+            <div class="gift-ribbon-v"></div>
+            <div class="gift-ribbon-h-lid"></div>
+          </div>
+          <div class="gift-body">
+            <div class="gift-ribbon-v"></div>
+            <div class="gift-ribbon-h"></div>
+            <div class="gift-shine"></div>
+          </div>
+          <div class="gift-bow">
+            <span class="bow-l"></span>
+            <span class="bow-r"></span>
+            <span class="bow-c"></span>
+          </div>
+          <div class="gift-sparkles">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="gift-shadow"></div>
+      </div>
+
+      <p class="kicker">— Այստեղ դեռ շարունակություն կա —</p>
+      <h1 class="hero-title">
+        Հեյ՛, <span class="name-highlight" data-girl-name>Նատալի</span>…
+      </h1>
+      <p class="hero-sub">
+        Այդ փոքրիկ Kinder-ը ուղղակի սկիզբն էր։<br />
+        Ներսում թաքնված է մի աշխարհ, որը հենց քեզ համար է։
+      </p>
+
+      <button class="btn btn-primary" data-next="1" data-ripple>
+        <span class="btn-label">Բացի՛ր ինձ</span>
+        <span class="btn-arrow">→</span>
+        <span class="btn-shine"></span>
+      </button>
+
+      <p class="hint">⚘ Սեղմի՛ր կոճակին</p>
+    </div>
+  </section>
+
+  <!-- ───────── 2. ՊԱՏՄՈՒԹՅՈՒՆ ───────── -->
+  <section class="screen" data-screen="1" data-transition="fade-up">
+    <div class="screen-inner">
+
+      <p class="kicker">— Մի փոքրիկ բան —</p>
+      <h2 class="section-title">Փոքրիկը, որ մեծ է դառնում</h2>
+
+      <div class="glass-card tilt-card">
+        <div class="card-glow"></div>
+        <span class="card-ornament">✦ ❦ ✦</span>
+        <div class="divider"><span></span>♥<span></span></div>
+        <p class="story-text reveal-text">
+          Կյանքը հազվադեպ է փոխվում մեծ իրադարձություններից։<br /><br />
+          Սովորաբար փոխվում է նրանից, որ ինչ-որ մեկը մտածում է քո մասին
+          հենց այնպես, անպատճառ։ Մի փոքրիկ միտք, որը քեզ հետ ես տանում
+          ամբողջ օրը։
+        </p>
+        <p class="story-text soft reveal-text">
+          Այսօր ես որոշեցի դա անել փոքրիկ, բայց անկեղծ ձևով։
+          Ոչ որպես մեծ խոսք, այլ որպես մեկ բարի միտք,
+          որը թող մնա քեզ հետ երկար։
+        </p>
+      </div>
+
+      <button class="btn btn-primary" data-next="2" data-ripple>
+        <span class="btn-label">Հետո ի՞նչ</span>
+        <span class="btn-arrow">→</span>
+        <span class="btn-shine"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ───────── 3. ՍՐՏԻԿՆԵՐ ───────── -->
+  <section class="screen" data-screen="2" data-transition="flip">
+    <div class="screen-inner">
+
+      <p class="kicker">— Երեք բան, որ ուզում էի ասել —</p>
+      <h2 class="section-title">Ամեն սրտիկ՝ մի բառ</h2>
+      <p class="hero-sub small">Սեղմի՛ր սրտիկներին ու տեսնի՛ր, թե ինչ է թաքնված ներսում</p>
+
+      <div class="hearts-row" id="heartsRow"></div>
+
+      <div class="heart-message" id="heartMessage" aria-live="polite">
+        <h3 id="hmTitle"></h3>
+        <p id="hmText"></p>
+      </div>
+
+      <button class="btn btn-primary" data-next="3" data-ripple>
+        <span class="btn-label">Մի բան էլ կա</span>
+        <span class="btn-arrow">→</span>
+        <span class="btn-shine"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ───────── 4. ՊԱՏԿԵՐԱՍՐԱՀ (polaroid) ───────── -->
+  <section class="screen" data-screen="3" data-transition="slide">
+    <div class="screen-inner">
+
+      <p class="kicker">— Փոքրիկ պատկերներ —</p>
+      <h2 class="section-title">Պահեր, որ ուզում եմ մոտս պահել</h2>
+      <p class="hero-sub small">Սահի՛ր կողք՝ հաջորդին անցնելու համար</p>
+
+      <div class="gallery" id="gallery">
+        <div class="gallery-track" id="galleryTrack"></div>
+        <div class="gallery-dots" id="galleryDots"></div>
+      </div>
+
+      <button class="btn btn-primary" data-next="4" data-ripple>
+        <span class="btn-label">Մի նամակ կա քեզ համար</span>
+        <span class="btn-arrow">→</span>
+        <span class="btn-shine"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ───────── 5. ՆԱՄԱԿ ───────── -->
+  <section class="screen" data-screen="4" data-transition="fade-up">
+    <div class="screen-inner">
+
+      <p class="kicker">— Փակ նամակ —</p>
+      <h2 class="section-title">Քեզ համար գրված</h2>
+
+      <div class="envelope-scene" id="envelopeScene">
+        <div class="envelope" id="envelope">
+          <div class="env-back"></div>
+          <div class="env-letter">
+            <div class="env-letter-line"></div>
+            <div class="env-letter-line"></div>
+            <div class="env-letter-line short"></div>
+            <div class="env-letter-heart">♥</div>
+          </div>
+          <div class="env-front"></div>
+          <div class="env-flap" id="envFlap"></div>
+          <div class="env-seal">
+            <span>♥</span>
+          </div>
+          <div class="env-glow"></div>
+        </div>
+        <p class="env-hint" id="envHint">
+          <span class="env-hint-dot"></span>
+          Սեղմի՛ր նամակը բացելու համար
+        </p>
+      </div>
+
+      <article class="letter-paper" id="letterPaper" aria-hidden="true">
+        <div class="letter-inner">
+          <p class="letter-greeting">Բարև՛, <span class="name-highlight" data-girl-name>Նատոուշ</span> ջան,</p>
+          <p>
+            Երբ որոշեցի այս փոքրիկ անակնկալը պատրաստել, երկար մտածում էի՝
+            ինչպե՞ս անեմ այնպես, որ դա քեզ համար իրոք ինչ-որ բան նշանակի։
+            Ոչ թե ուղղակի բառեր, այլ մի փոքրիկ պահ, որը կհիշվի։
+          </p>
+          <p>
+            Չգիտեմ՝ դու հիմա ինչ տրամադրությամբ ես բացել այս էջը։
+            Միգուցե ուրախ ես, միգուցե հոգնած, միգուցե ինչ-որ բան մտածելու տեղիք ունես։
+            Ամեն դեպքում ուզում էի, որ այս պահին, ինչ էլ որ լինի, դու մի պահ
+            զգաս՝ ինչ-որ մեկը մտածել է քո մասին։
+          </p>
+          <p>
+            Կյանքում ամեն ինչ չէ, որ պետք է մեծ լինի։ Փոքրիկ ուշադրությունները,
+            պատահական ժպիտները, մեկի մասին մտածելը հենց այնպես, անպատճառ՝
+            սրանք են, որ մեր օրերը դարձնում են ավելի ջերմ։
+          </p>
+          <p>
+            Ուզում եմ, որ դու միշտ հիշես՝ դու արժանի ես լավ բաների։
+            Ոչ այն պատճառով, որ ինչ-որ մեկը դա ասում է, այլ որովհետև
+            դա ճիշտ է։ Դու ուժեղ ես, անկեղծ ու գեղեցիկ։
+          </p>
+          <p>
+            Խնայիր քեզ, խնայիր քո ժպիտը։ Եվ եթե մի օր մոռանաս,
+            թե որքան կարևոր ես, վերադարձի՛ր այս էջ ու նորից կարդա։
+          </p>
+          <p class="letter-sign">
+            Ջերմությամբ՝<br />
+            <span class="name-highlight" data-boy-name>Լեվոն</span>
+          </p>
+          <div class="letter-ornament">❦</div>
+        </div>
+      </article>
+
+      <button class="btn btn-primary" data-next="5" id="letterNextBtn" data-ripple style="display:none;">
+        <span class="btn-label">Մի բան էլ մնաց</span>
+        <span class="btn-arrow">→</span>
+        <span class="btn-shine"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ───────── 6. ՎԵՐՋԻՆ ───────── -->
+  <section class="screen" data-screen="5" data-transition="zoom">
+    <div class="screen-inner">
+
+      <div class="final-glow"></div>
+
+      <div class="rose-wrap">
+        <div class="rose">
+          <span class="petal p1"></span>
+          <span class="petal p2"></span>
+          <span class="petal p3"></span>
+          <span class="petal p4"></span>
+          <span class="petal p5"></span>
+          <span class="petal p6"></span>
+          <span class="rose-core"></span>
+        </div>
+        <div class="rose-stem"></div>
+        <div class="rose-leaf l1"></div>
+        <div class="rose-leaf l2"></div>
+        <div class="rose-sparkles">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <h2 class="final-title">
+        Եթե այս էջերից գեթ մեկը<br />
+        քեզ մի փոքրիկ ժպիտ պարգևեց —
+      </h2>
+      <p class="final-sub">ուրեմն ուշադրությունս հասել է տեղը։</p>
+
+      <div class="final-hearts" aria-hidden="true">
+        <span>♥</span><span>♥</span><span>♥</span>
+      </div>
+
+      <button class="btn btn-ghost" id="restartBtn" data-ripple>
+        <span class="btn-label">↺ Վերադառնալ սկիզբ</span>
+        <span class="btn-shine"></span>
+      </button>
+
+      <p class="final-credits">Սիրով ու ուշադրությամբ՝ <span class="name-highlight" data-boy-name>Լեվոն</span> 💝</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
